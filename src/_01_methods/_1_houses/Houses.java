@@ -6,25 +6,29 @@ import org.jointheleague.graphical.robot.Robot;
  *    Copyright (c) The League of Amazing Programmers 2013-2021
  *    Level 1
  */
+
 public class Houses {
+	static Robot rob = new Robot();
 		public static void main(String[] args) {
-		Robot rob = new Robot();	
+			
 		 rob.penDown();
 		 rob.setX(100);
-		 rob.setY(500);
-		 for(int i = 0; i == 9; i++) {
+		 rob.setY(550);
+		 for(int i = 0; i < 9; i++) {
 			 drawRectangle();
 		 }
 		}
 		 static void drawRectangle() {
-			 Robot rob = new Robot(); 
-		 rob.penDown();
-		 rob.turn(90);
-		 rob.move(200);
-		 rob.turn(90);
-		 rob.move(40);
-		 rob.turn(90);
-		 rob.move(200);
+			 rob.move(100);
+			 rob.turn(90);
+			 rob.move(30);
+			 rob.turn(90);
+			 rob.move(100);
+			 rob.turn(180);
+			 rob.move(30);
+			 rob.turn(90);
+		 
+		 
 		}
 		
 		 
