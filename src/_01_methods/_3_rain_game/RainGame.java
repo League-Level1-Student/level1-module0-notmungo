@@ -63,14 +63,32 @@ public class RainGame extends PApplet {
     	bucket = loadImage("images/bucket.png");
     	bucket.resize(100, 100);
     }
-
+    int y2 = 5;
+    int randomNumber = (int)random(WIDTH);
     @Override
     public void draw() {
-    background(40,30,50);
-    ellipse(300,50, 25,35);	
+    background(40,200,255);
     fill(0,0,255);
+    ellipse(randomNumber,y2, 25,35);	
+    y2 += 10;
+  
+    if( y2 >= HEIGHT) {
+    	y2 = 0;
+    	randomNumber = (int)random(WIDTH);
     }
+    
+    fill(100,100,100);
+    int bucketWidth = 150;
+    rect(mouseX,420,bucketWidth,180);
+    if(y2 > HEIGHT - 180) {
+    	checkCatch(randomNumber);
+    }
+    
+    fill(0, 0, 0);
+    textSize(16);
+    text("Score: " + score, 20, 20);
 
+    }
     static public void main(String[] args) {
         PApplet.main(RainGame.class.getName());
     }
@@ -80,6 +98,8 @@ public class RainGame extends PApplet {
     void checkCatch(int x) {
         if (x > mouseX && x < mouseX + bucketWidth) {
             score++;
+            y2 = 0;
+            randomNumber = (int)random(WIDTH);            
         } else if (score > 0) {
             score--;
         }
