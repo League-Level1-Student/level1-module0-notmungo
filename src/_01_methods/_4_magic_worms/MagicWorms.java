@@ -56,9 +56,12 @@ public class MagicWorms extends PApplet {
 
     @Override
     public void draw() {
+    	makeMagical();
     	  for(int i = 0; i <= 300; i ++) {
     		   fill(255,0,0);
-    		   ellipse(random(WIDTH), random(HEIGHT), 20,30);
+    		   ellipse(random(WIDTH), random(HEIGHT), 20,30 );
+    		   getWormX(i);
+    		   getWormY(i);
     	  }
     }
 
