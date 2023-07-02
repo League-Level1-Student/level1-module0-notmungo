@@ -9,7 +9,11 @@ public class FlappyBird extends PApplet {
     int y = 60;
     int birdYVelocity = -10;
     int gravity = -4;
-    int x2 = 25;
+    int x2 = 750;
+    int upperPipeHeight = (int) random(100, 400);
+    int pipeGap = 150;
+    int lowery = upperPipeHeight + pipeGap;
+
     @Override
     public void settings() {
         size(WIDTH, HEIGHT);
@@ -30,17 +34,30 @@ public class FlappyBird extends PApplet {
      
      y -= gravity;
      fill(0,255,50);
-     rect(x2,0, 50,150);
-     x2 -= 10;
+     rect(x2,0, 50, upperPipeHeight);
+     x2 -= 5;
+     if(x2 <= 0) {
+        x2 += 750;
+        upperPipeHeight = (int) random(100, 400); 
+        lowery = upperPipeHeight + pipeGap;
+     }
+     fill(0,255,0);
+     rect(x2,lowery, 50, HEIGHT - lowery );
+     x2 -= 5;
+  
     }
    public void mousePressed() {
-	birdYVelocity = 20;
+	birdYVelocity = 80;
 	y -= birdYVelocity;
 	
+} 
+   boolean intersectsPipes() { 
+       if (y < upperPipeHeight && x > x2 && x < (x2+50)){
+          return true; }
+      else if (y>lowery && x > x2 && x < (x2+50)) {
+          return true; }
+      else { return false; }
 }
-   public void teleportPipes() {
-	   
-   }
    
     static public void main(String[] args) {
         PApplet.main(FlappyBird.class.getName());
