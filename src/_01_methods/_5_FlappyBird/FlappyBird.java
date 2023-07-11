@@ -13,7 +13,8 @@ public class FlappyBird extends PApplet {
     int upperPipeHeight = (int) random(100, 400);
     int pipeGap = 150;
     int lowery = upperPipeHeight + pipeGap;
-
+    int Score = 0;
+    
     @Override
     public void settings() {
         size(WIDTH, HEIGHT);
@@ -44,7 +45,10 @@ public class FlappyBird extends PApplet {
      fill(0,255,0);
      rect(x2,lowery, 50, HEIGHT - lowery );
      x2 -= 5;
-  
+     text(" Score " + Score, 0, 100);
+     if(x2 == pipeGap) {
+    	Score += 1;
+     }
     }
    public void mousePressed() {
 	birdYVelocity = 80;
