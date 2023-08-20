@@ -6,43 +6,51 @@ import java.net.URL;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import game_tools.Sound;
 
 public class DrumKit implements MouseListener {
     static boolean canPlaySounds = true; // Set this to false if your computer cannot play sounds
     JLabel drumLabel;
-
+    
     public void run() {
         //  Make a JFrame variable and initialize it using "new JFrame()"
-
+    	JPanel drumKit2 = new JPanel();
+    	JFrame drumKit = new JFrame();
+    	
         //  Make the frame visible and
+        drumKit.setVisible(true);
         // set its default close operation to JFrame.EXIT_ON_CLOSE
-
+        drumKit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //  Set the title of the frame
-
+        drumKit.setTitle(null);
         //  Make a JPanel variable and initialize it using "new JPanel().
-
+       
         //  Add the panel to the frame. (The panel is invisible.)
-
+        drumKit.add(drumKit2);
         //  Use the image of a drum provided ("snare.jpg") or
         //  download an image of a drum from the Internet and drop it into the
         //  Drum Kit recipe package.
 
         //  Put the name of the drum image file in a String variable.
-
+        String drum1 = "snare.jpg";
+        drumLabel = createLabelImage(drum1);
         //  Edit the next line to use your String variable
+        
         // drumLabel = createLabelImage(drumImageString);
-
+        
         //  Add the label to the panel
-
+        drumKit2.add(drumLabel);
         //  Call the pack() method on the frame.
+        drumKit.pack();
         // Run your program. Do you see your drum image?
-
+        
         // Add this MouseListener to drumLabel
-
+        drumLabel.addMouseListener(null);
         // *** Write the code in the mouseClicked() method below
 
         //  Set the layout of the panel to "new GridLayout()"
@@ -57,7 +65,7 @@ public class DrumKit implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         // Print "mouse clicked" to the console. Run your program and watch
         // the console to see when this is printed.
-
+    	System.out.println("mouse clicked");
         //JLabel labelClicked = (JLabel) e.getSource(); // This line gets the label
                                                         // that the mouse
                                                         // clicked on
