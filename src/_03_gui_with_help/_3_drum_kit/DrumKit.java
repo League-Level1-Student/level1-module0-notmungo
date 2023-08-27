@@ -1,5 +1,6 @@
 package _03_gui_with_help._3_drum_kit;
 
+import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
@@ -22,6 +23,7 @@ public class DrumKit implements MouseListener {
     	JPanel drumKit2 = new JPanel();
     	JFrame drumKit = new JFrame();
     	
+    	drumKit.setPreferredSize(new Dimension (1000,1000));
         //  Make the frame visible and
         drumKit.setVisible(true);
         // set its default close operation to JFrame.EXIT_ON_CLOSE
@@ -50,7 +52,7 @@ public class DrumKit implements MouseListener {
         // Run your program. Do you see your drum image?
         
         // Add this MouseListener to drumLabel
-        drumLabel.addMouseListener(null);
+        drumLabel.addMouseListener(this);
         // *** Write the code in the mouseClicked() method below
 
         //  Set the layout of the panel to "new GridLayout()"
@@ -66,18 +68,21 @@ public class DrumKit implements MouseListener {
         // Print "mouse clicked" to the console. Run your program and watch
         // the console to see when this is printed.
     	System.out.println("mouse clicked");
+    	
         //JLabel labelClicked = (JLabel) e.getSource(); // This line gets the label
-                                                        // that the mouse
+                                                      // that the mouse
                                                         // clicked on
-
+    	JLabel labelClicked = (JLabel) e.getSource();
         // You can use the drum sound provided ("drum.wav") or
         // download another drum sound (.wav) and drop it into the Drum Kit package.
         // You can find sounds on freesound.org, and to download from there, you must log in
         // Ask your teacher for The League's login information.
-
+    	if(labelClicked == drumLabel) {
+    		playSound("drum.wav");
+    	}
         //  If the user clicks on the drumImage...use the playSound method to play the drum sound.
         //  Test to see if it works before moving on.
-
+    
     }
 
     private JLabel createLabelImage(String fileName) {
