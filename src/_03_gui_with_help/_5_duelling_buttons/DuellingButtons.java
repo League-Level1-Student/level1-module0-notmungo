@@ -35,18 +35,18 @@ frame.isVisible();
 leftButton.setText("Click Me!");
 		// 4. Set the text of the rightButton to "Click me!"
 rightButton.setText("Click Me!");
-		// 5. Add an action listener to the leftButton
-
+		// 5. Add an action listener to the leftButto\
+leftButton.addActionListener(null);
 		// 6. Add an action listener to the rightButton
-
+rightButton.addActionListener(null);
 		// 7. Add the leftButton to the panel
-
+leftButton.add(panel);
 		// 8. Add the rightButton to the panel
-
+rightButton.add(panel);
 		// 9. Pack the frame
-
+frame.pack();
 		// 10. Set the title of the frame to "Demanding Buttons"
-
+frame.setTitle("Demanding Buttons");
 	}
 
 	@Override
@@ -54,6 +54,18 @@ rightButton.setText("Click Me!");
 		JButton buttonPressed = (JButton) arg0.getSource();
 
 		/* If the buttonPressed was the leftButton.... */
+		if(buttonPressed == leftButton) {
+			rightButton.setText("No, Click me!");
+			rightButton.setPreferredSize(BIG);
+			leftButton.setText("Click Me!");
+			leftButton.setPreferredSize(SMALL);
+		}
+		else if(buttonPressed == rightButton) {
+			rightButton.setText( "Dont Click me!");
+			rightButton.setPreferredSize(SMALL);
+			leftButton.setText("No, Dont Click Me!");
+			leftButton.setPreferredSize(BIG);
+		}
 		// Set the text of the rightButton to "No, click Me!"
 		// Set the PREFERRED size of the rightButton to BIG
 		// Set the text of the leftButton to "Click Me!"
